@@ -1,0 +1,53 @@
+NAME
+    Catalyst::View::GD::Thumbnail - Catalyst view to resize images for
+    thumbnails
+
+SYNOPSIS
+    Create a thumbnail view:
+
+        script/myapp_create view Thumbnail Thumbnail
+
+    Then in your controller:
+
+        sub thumbnail :Local :Args(1) {
+            my ($self, $c, $image_file_path) = @_;
+        
+            $c->stash->{x}     = 100;    # Create a 100px wide thumbnail
+				
+										 #or
+					
+			$c->stash->{y}     = 100;    # Create a 100px tall thumbnail
+            $c->stash->{image} = $image_file_path;
+        
+            $c->forward('View::Thumbnail');
+        }
+
+DESCRIPTION
+    Catalyst::View::GD::Thumbnail resizes images to produce thumbnails, with
+    options to set the desired x or y dimensions.
+
+    Full documentation is available after installation by typing
+    
+        perldoc Catalyst::View::GD::Thumbnail
+
+INSTALLATION
+    To install this module, run the following commands:
+
+        perl Makefile.PL
+        make
+        make test
+        make install
+		
+AUTHOR
+    Nick Logan (ugexe)
+
+COPYRIGHT & LICENSE
+    Copyright (C) 2009 Jon Allen (JJ).
+
+    This module is free software; you can redistribute it and/or modify it
+    under the same terms as Perl 5.10.0. For more details, see the full text
+    of the licenses in the directory LICENSES.
+
+    This module is distributed in the hope that it will be useful, but it is
+    provided “as is” and without any express or implied warranties.
+
