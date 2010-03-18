@@ -73,7 +73,26 @@ sub process {
   $c->response->body($thumbnail);    
 }
 
+=head1 SYNOPSIS
 
+    Create a thumbnail view:
+
+        script/myapp_create view Thumbnail Thumbnail
+
+    Then in your controller:
+
+        sub thumbnail :Local :Args(1) {
+            my ($self, $c, $image_file_path) = @_;
+        
+            $c->stash->{x}     = 100;    # Create a 100px wide thumbnail
+				
+										 #or
+					
+			$c->stash->{y}     = 100;    # Create a 100px tall thumbnail
+            $c->stash->{image} = $image_file_path;
+        
+            $c->forward('View::Thumbnail');
+        }
 
 =head1 DESCRIPTION
 
@@ -122,7 +141,7 @@ Nick Logan (ugexe), C<< <nik_517@yahoo.com> >>
 =head1 BUGS
 
 Please report any bugs or feature requests to C<bug-catalyst-view-thumbnail at rt.cpan.org>, or through
-the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Catalyst-View-Thumbnail>.  I will be notified, and then you'll
+the web interface at L<http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Catalyst-View-GD-Thumbnail>.  I will be notified, and then you'll
 automatically be notified of progress on your bug as I make changes.
 
 =head1 COPYRIGHT & LICENSE
