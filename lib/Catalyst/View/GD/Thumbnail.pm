@@ -13,7 +13,7 @@ Catalyst::View::GD::Thumbnail - Catalyst view to resize images for thumbnails
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.05';
 
 sub process {
   my ($self, $c) = @_;
@@ -123,6 +123,7 @@ The height (in pixels) of the thumbnail.
 
 This is optional, but at least one of the C<x> or C<y> parameters must be set.
 
+=back
 
 =head2 Image formats
 
