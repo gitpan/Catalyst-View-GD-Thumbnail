@@ -99,6 +99,8 @@ sub process {
 Catalyst::View::GD::Thumbnail resizes images to produce thumbnails, with options to set the desired x or y
 dimensions.
 
+=back
+
 =head2 Options
 
 The view is controlled by setting the following values in the stash:
