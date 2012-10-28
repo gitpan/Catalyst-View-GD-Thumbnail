@@ -1,15 +1,14 @@
 ---
 abstract: 'Catalyst view to resize images for thumbnails'
 author:
-  - 'Nick Logan (ugexe) <F<ug@skunkds.com>>'
+  - 'Nick Logan (ugexe) <nik_517@yahoo.com>'
 build_requires:
   ExtUtils::MakeMaker: 6.36
   Test::More: 0
 configure_requires:
-  ExtUtils::MakeMaker: 6.36
-distribution_type: module
-dynamic_config: 1
-generated_by: 'Module::Install version 1.06'
+  ExtUtils::MakeMaker: 6.42
+dynamic_config: 0
+generated_by: 'Module::Install version 0.91, CPAN::Meta::Converter version 2.112150'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -27,4 +26,4 @@ requires:
   parent: 0
 resources:
   license: http://dev.perl.org/licenses/
-version: 0.10
+version: 0.01

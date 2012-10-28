@@ -1,5 +1,8 @@
 Revision history for Catalyst-View-GD-Thumbnail
 
+0.10    26 October 2012 - 23:00
+	 Corrected encoding problem with PODs causing test failures
+
 0.09    1 April 2010 - 01:35
         Corrected typos in documents
 		Fixed pods

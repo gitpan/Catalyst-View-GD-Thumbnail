@@ -3,51 +3,73 @@ NAME
     thumbnails
 
 SYNOPSIS
-    Create a thumbnail view:
+        Create a thumbnail view:
 
-        script/myapp_create view Thumbnail Thumbnail
+            script/myapp_create view Thumbnail Thumbnail
 
-    Then in your controller:
+        Then in your controller:
 
-        sub thumbnail :Local :Args(1) {
-            my ($self, $c, $image_file_path) = @_;
-        
-            $c->stash->{x}     = 100;    # Create a 100px wide thumbnail
-				
-										 #or
-					
-			$c->stash->{y}     = 100;    # Create a 100px tall thumbnail
-            $c->stash->{image} = $image_file_path;
-        
-            $c->forward('View::Thumbnail');
-        }
+            sub thumbnail :Local :Args(1) {
+                    my ($self, $c, $image_file_path) = @_;
+
+                    $c->stash->{x}     = 100;    
+                    # Create a 100px wide thumbnail
+
+                    #or
+
+                    $c->stash->{y}     = 100;    
+                    # Create a 100px tall thumbnail
+
+                    $c->stash->{image} = $image_file_path;        
+                    $c->forward('View::Thumbnail');
+            }
 
 DESCRIPTION
     Catalyst::View::GD::Thumbnail resizes images to produce thumbnails, with
-    options to set the desired x or y dimensions.
+    options to set the desired x or y dimensions. Uses the GD image library
+    for those who are already using something more advanced than Imager.
 
-    Full documentation is available after installation by typing
-    
-        perldoc Catalyst::View::GD::Thumbnail
+  Options
+    The view is controlled by setting the following values in the stash:
 
-INSTALLATION
-    To install this module, run the following commands:
+    image
+        Contains the file path for the full-size source image.
 
-        perl Makefile.PL
-        make
-        make test
-        make install
-		
+        This is a mandatory option.
+
+    x   The width (in pixels) of the thumbnail.
+
+        This is optional, but at least one of the "x" or "y" parameters must
+        be set.
+
+    y   The height (in pixels) of the thumbnail.
+
+        This is optional, but at least one of the "x" or "y" parameters must
+        be set.
+
+  Image formats
+    The generated thumbnails will always be produced in the same format
+    (PNG, JPG, etc) as the source image.
+
+    Catalyst::View::GD::Thumbnail uses the Image::Resize module to crop and
+    resize images, so it accept any image format supported by
+    *Image::Resize*: bmp, gif, jpeg, png, xbm, xpm.
+
+    Please see the Image::Resize documentation for more details and
+    installation notes.
+
+BUGS
+    Please report any bugs or feature requests to
+    "bug-catalyst-view-thumbnail at rt.cpan.org", or through the web
+    interface at
+    <http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Catalyst-View-GD-Thumbna
+    il>. I will be notified, and then you'll automatically be notified of
+    progress on your bug as I make changes.
+
 AUTHOR
-    Nick Logan (ugexe)
+    Nick Logan (ugexe) <ug@skunkds.com>
 
-COPYRIGHT & LICENSE
-    Copyright (C) 2010 Nick Logan (ugexe).
-
-    This module is free software; you can redistribute it and/or modify it
-    under the same terms as Perl 5.10.0. For more details, see the full text
-    of the licenses in the directory LICENSES.
-
-    This module is distributed in the hope that it will be useful, but it is
-    provided “as is” and without any express or implied warranties.
+LICENSE AND COPYRIGHT
+    This library is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
 
