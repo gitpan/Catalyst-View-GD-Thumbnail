@@ -7,7 +7,7 @@ use Image::Info qw/image_type/;
 use Image::Resize;
 use List::Util qw/min max/;
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 sub process {
   my ($self, $c) = @_;

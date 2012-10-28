@@ -1,7 +1,7 @@
 use inc::Module::Install;
 
-name     'Catalyst-View-GD-Thumbnail';
-all_from 'lib/Catalyst/View/GD/Thumbnail.pm';
+name     	'Catalyst-View-GD-Thumbnail';
+all_from 	'lib/Catalyst/View/GD/Thumbnail.pm';
 readme_from 	'lib/Catalyst/View/GD/Thumbnail.pm', 1;
 
 auto_manifest;
