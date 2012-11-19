@@ -7,7 +7,7 @@ use Image::Info qw/image_type/;
 use Image::Resize;
 use List::Util qw/min max/;
 
-our $VERSION = '0.11';
+our $VERSION = '0.12';
 
 sub process {
   my ($self, $c) = @_;
@@ -75,7 +75,7 @@ __END__
 
 =head1 NAME
 
-Catalyst::View::GD::Thumbnail - Catalyst view to resize images for thumbnails
+Catalyst::View::GD::Thumbnail - Catalyst view to resize images for thumbnails.
 
 =cut
 

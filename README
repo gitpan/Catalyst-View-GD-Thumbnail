@@ -1,6 +1,6 @@
 NAME
     Catalyst::View::GD::Thumbnail - Catalyst view to resize images for
-    thumbnails
+    thumbnails.
 
 SYNOPSIS
         Create a thumbnail view:

@@ -1,5 +1,9 @@
 Revision history for Catalyst-View-GD-Thumbnail
 
+0.12    18 November 2012 - 20:33
+	 Switched to MakeMaker
+
+
 0.10    26 October 2012 - 23:00
 	 Corrected encoding problem with PODs causing test failures
 

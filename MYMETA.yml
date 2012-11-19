@@ -1,9 +1,8 @@
 ---
-abstract: 'Catalyst view to resize images for thumbnails'
+abstract: 'Catalyst view to resize images for thumbnails.'
 author:
-  - 'Nick Logan (ugexe) <F<ug@skunkds.com>>'
+  - 'Nick Logan <ug@skunkds.org>'
 build_requires:
-  ExtUtils::MakeMaker: 6.36
   Test::More: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
@@ -19,9 +18,9 @@ no_index:
     - t
     - inc
 requires:
-  Catalyst::View: 0
   Image::Info: 0
   Image::Resize: 0
   List::Util: 0
-  parent: 0
-version: 0.11
+resources:
+  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-View-GD-Thumbnail
+version: 0.12
