@@ -3,6 +3,7 @@ use warnings;
 use ExtUtils::MakeMaker;
 
 my $pm =   'lib/Catalyst/View/GD/Thumbnail.pm';
+my $repo = 'https://github.com/ugexe/Catalyst--View--GD--Thumbnail';
 my $bugs = 'https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-View-GD-Thumbnail';
 
 WriteMakefile (
@@ -15,13 +16,15 @@ WriteMakefile (
 	'Image::Info'		=> 0,
 	'Image::Resize'	=> 0,
 	'List::Util'		=> 0,
+	'Catalyst::View'	=> 0,
     },
     BUILD_REQUIRES => {
 	'Test::More'		=> 0,
     },
     META_MERGE => {
         resources => {
-            bugtracker => "$bugs",
+            repository => $repo,
+            bugtracker => $bugs,
         },
     },
 );

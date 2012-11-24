@@ -18,9 +18,11 @@ no_index:
     - t
     - inc
 requires:
+  Catalyst::View: 0
   Image::Info: 0
   Image::Resize: 0
   List::Util: 0
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-View-GD-Thumbnail
-version: 0.12
+  repository: https://github.com/ugexe/Catalyst--View--GD--Thumbnail
+version: 0.13

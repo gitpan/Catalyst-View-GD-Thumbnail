@@ -16,9 +16,9 @@
 #     BUILD_REQUIRES => { Test::More=>q[0] }
 #     CONFIGURE_REQUIRES => {  }
 #     LICENSE => q[perl]
-#     META_MERGE => { resources=>{ bugtracker=>q[https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-View-GD-Thumbnail] } }
+#     META_MERGE => { resources=>{ repository=>q[https://github.com/ugexe/Catalyst--View--GD--Thumbnail], bugtracker=>q[https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-View-GD-Thumbnail] } }
 #     NAME => q[Catalyst::View::GD::Thumbnail]
-#     PREREQ_PM => { Test::More=>q[0], Image::Info=>q[0], List::Util=>q[0], Image::Resize=>q[0] }
+#     PREREQ_PM => { Test::More=>q[0], Image::Info=>q[0], List::Util=>q[0], Catalyst::View=>q[0], Image::Resize=>q[0] }
 #     VERSION_FROM => q[lib/Catalyst/View/GD/Thumbnail.pm]
 
 # --- MakeMaker post_initialize section:
@@ -58,11 +58,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Catalyst::View::GD::Thumbnail
 NAME_SYM = Catalyst_View_GD_Thumbnail
-VERSION = 0.12
+VERSION = 0.13
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_12
+VERSION_SYM = 0_13
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.12
+XS_VERSION = 0.13
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -260,7 +260,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Catalyst-View-GD-Thumbnail
-DISTVNAME = Catalyst-View-GD-Thumbnail-0.12
+DISTVNAME = Catalyst-View-GD-Thumbnail-0.13
 
 
 # --- MakeMaker macro section:
@@ -502,12 +502,14 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '    - t' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - inc' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Catalyst::View: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Image::Info: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  Image::Resize: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) '  List::Util: 0' >> META_new.yml
 	$(NOECHO) $(ECHO) 'resources:' >> META_new.yml
 	$(NOECHO) $(ECHO) '  bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-View-GD-Thumbnail' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: 0.12' >> META_new.yml
+	$(NOECHO) $(ECHO) '  repository: https://github.com/ugexe/Catalyst--View--GD--Thumbnail' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: 0.13' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
@@ -544,6 +546,7 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      },' >> META_new.json
 	$(NOECHO) $(ECHO) '      "runtime" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Catalyst::View" : 0,' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Image::Info" : 0,' >> META_new.json
 	$(NOECHO) $(ECHO) '            "Image::Resize" : 0,' >> META_new.json
 	$(NOECHO) $(ECHO) '            "List::Util" : 0' >> META_new.json
@@ -554,9 +557,12 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '   "resources" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '      "bugtracker" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "web" : "https://rt.cpan.org/Public/Dist/Display.html?Name=Catalyst-View-GD-Thumbnail"' >> META_new.json
+	$(NOECHO) $(ECHO) '      },' >> META_new.json
+	$(NOECHO) $(ECHO) '      "repository" : {' >> META_new.json
+	$(NOECHO) $(ECHO) '         "url" : "https://github.com/ugexe/Catalyst--View--GD--Thumbnail"' >> META_new.json
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : "0.12"' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : "0.13"' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -852,10 +858,11 @@ testdb_static :: testdb_dynamic
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0.12">' > $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="$(DISTNAME)" VERSION="0.13">' > $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Catalyst view to resize images for thumbnails.</ABSTRACT>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>Nick Logan &lt;ug@skunkds.org&gt;</AUTHOR>' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> $(DISTNAME).ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Catalyst::View" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Image::Info" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Image::Resize" />' >> $(DISTNAME).ppd
 	$(NOECHO) $(ECHO) '        <REQUIRE NAME="List::Util" />' >> $(DISTNAME).ppd
